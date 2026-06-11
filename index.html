@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>РодныеVPN — добро пожаловать 🎉</title>
+<meta name="description" content="Тебя добавили в РодныеVPN. Инструкция по настройке за 2 минуты.">
+<meta property="og:title" content="🎉 Тебя приняли в РодныеVPN">
+<meta property="og:description" content="Свободный интернет с финским акцентом. Настройка за 2 минуты.">
+<style>
+  :root{
+    --bg:#0d0b1f; --card:rgba(255,255,255,.06); --line:rgba(255,255,255,.12);
+    --txt:#f2f0ff; --mut:#a8a3c9; --acc:#7c5cff; --acc2:#ff5ca8; --ok:#3ddc97;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--txt);line-height:1.55;
+    min-height:100vh;overflow-x:hidden;
+  }
+  body::before{
+    content:"";position:fixed;inset:-20%;z-index:-1;
+    background:
+      radial-gradient(40% 40% at 15% 10%,#7c5cff55,transparent 70%),
+      radial-gradient(45% 45% at 85% 15%,#ff5ca855,transparent 70%),
+      radial-gradient(50% 50% at 50% 90%,#2bd9ff44,transparent 70%);
+    filter:blur(20px);animation:float 14s ease-in-out infinite alternate;
+  }
+  @keyframes float{from{transform:translateY(-10px) scale(1)}to{transform:translateY(20px) scale(1.06)}}
+  .wrap{max-width:660px;margin:0 auto;padding:28px 18px 60px}
+
+  .hero{text-align:center;padding:34px 16px 22px}
+  .hero .emoji{font-size:64px;line-height:1;filter:drop-shadow(0 6px 20px #0008);animation:pop .6s cubic-bezier(.2,1.4,.5,1)}
+  @keyframes pop{0%{transform:scale(.3);opacity:0}100%{transform:scale(1);opacity:1}}
+  .hero h1{
+    font-size:clamp(28px,7vw,42px);font-weight:900;letter-spacing:-.02em;margin:14px 0 6px;
+    background:linear-gradient(100deg,#fff,#c9b8ff 40%,#ff9ecf);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .hero p{color:var(--mut);font-size:17px;max-width:440px;margin:0 auto}
+  .badge{display:inline-block;margin-top:16px;padding:7px 16px;border-radius:999px;
+    background:linear-gradient(90deg,var(--acc),var(--acc2));font-weight:700;font-size:14px;
+    box-shadow:0 8px 24px #7c5cff55}
+
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:22px;
+    padding:22px 20px;margin:16px 0;backdrop-filter:blur(12px);
+    box-shadow:0 10px 40px #00000040;
+  }
+  .step{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+  .num{flex:0 0 38px;height:38px;border-radius:12px;display:grid;place-items:center;
+    font-weight:900;font-size:18px;background:linear-gradient(135deg,var(--acc),var(--acc2));
+    box-shadow:0 6px 18px #7c5cff44}
+  .step h2{font-size:20px;font-weight:800}
+  .card p{color:var(--mut);font-size:15.5px;margin:6px 0}
+  .card b{color:var(--txt)}
+
+  .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+  .btn{
+    flex:1 1 calc(50% - 5px);text-align:center;text-decoration:none;color:#fff;
+    padding:13px 12px;border-radius:14px;font-weight:700;font-size:15px;
+    background:rgba(255,255,255,.08);border:1px solid var(--line);transition:.18s;
+  }
+  .btn:hover{transform:translateY(-2px);background:rgba(255,255,255,.14);border-color:#fff5}
+  .btn.primary{flex:1 1 100%;background:linear-gradient(90deg,var(--acc),var(--acc2));border:0;
+    box-shadow:0 10px 30px #7c5cff55;font-size:16px;padding:15px}
+
+  .codebox{position:relative;margin-top:14px}
+  .codebox code{
+    display:block;background:#00000055;border:1px solid var(--line);border-radius:14px;
+    padding:14px 14px 14px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;
+    color:#b9aef5;max-height:96px;overflow:auto;word-break:break-all;white-space:pre-wrap;
+  }
+  .copy{
+    width:100%;margin-top:10px;padding:13px;border:0;border-radius:14px;cursor:pointer;
+    font-weight:800;font-size:15px;color:#fff;background:linear-gradient(90deg,#3ddc97,#2bd9ff);
+    box-shadow:0 8px 24px #2bd9ff44;transition:.15s;
+  }
+  .copy:active{transform:scale(.98)}
+  .copy.done{background:linear-gradient(90deg,#3ddc97,#3ddc97)}
+  .small{font-size:13.5px;color:var(--mut);margin-top:10px}
+  .small a{color:#9d86ff}
+
+  .mem{
+    text-align:center;margin-top:22px;padding:22px;border-radius:22px;
+    background:linear-gradient(135deg,#ff5ca822,#7c5cff22);border:1px dashed var(--line);
+  }
+  .mem .big{font-size:40px}
+  .mem h3{font-size:19px;font-weight:900;margin:8px 0 6px}
+  .mem p{color:var(--mut);font-size:15px}
+  .foot{text-align:center;color:var(--mut);font-size:13px;margin-top:34px;opacity:.7}
+  .tag{display:inline-block;background:rgba(255,255,255,.08);border:1px solid var(--line);
+    border-radius:8px;padding:2px 9px;margin:3px;font-size:13px;font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="emoji">🎉</div>
+    <h1>Тебя приняли<br>в РодныеVPN</h1>
+    <p>Эксклюзивный семейный клуб. Финский интернет, российские бабушки одобряют. Настройка — 2 минуты, чесслово.</p>
+    <div class="badge">✦ VIP-доступ активирован ✦</div>
+  </div>
+
+  <div class="card">
+    <div class="step"><div class="num">1</div><h2>Скачай Happ</h2></div>
+    <p>Это приложение, через которое всё крутится. Без него — <b>никак</b>. Бесплатное.</p>
+    <div class="btns">
+      <a class="btn primary" href="https://happ.su" target="_blank" rel="noopener">⬇️ Скачать Happ (тут все платформы)</a>
+      <a class="btn" href="https://happ.su" target="_blank" rel="noopener">🍏 iPhone / iPad</a>
+      <a class="btn" href="https://happ.su" target="_blank" rel="noopener">🤖 Android</a>
+      <a class="btn" href="https://happ.su" target="_blank" rel="noopener">🪟 Windows</a>
+      <a class="btn" href="https://happ.su" target="_blank" rel="noopener">🍎 macOS</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="step"><div class="num">2</div><h2>Вставь свой пропуск</h2></div>
+    <p>Тебе лично прислали <b>QR-код и ссылку</b>. Это твой ключ — никому не передавай 🤫</p>
+    <p>👉 Открой <b>Happ</b> → жми <b>«+»</b> → <b>сканируй QR</b> (или вставь ссылку из буфера) → <b>Подключить</b>.</p>
+    <p>Всё. Ты в матрице. Только финской 🇫🇮</p>
+  </div>
+
+  <div class="card">
+    <div class="step"><div class="num">3</div><h2>Чтобы не бесило 🧠</h2></div>
+    <p>Достало выключать VPN каждый раз ради <b>Т-Банка, Сбера, Озона, WB, Магнита, Госуслуг</b>? Они не любят заграничные IP.</p>
+    <p>Добавь <b>умную маршрутизацию</b>: российские приложения пойдут напрямую, всё остальное — через VPN. Переключать больше не надо. Магия 🪄</p>
+    <div class="codebox">
+      <code id="route">happ://routing/onadd/eyJOYW1lIjoiUm9zY29tVlBOLVBlcnNvbmFsIiwiR2xvYmFsUHJveHkiOiJ0cnVlIiwiVXNlQ2h1bmtGaWxlcyI6InRydWUiLCJSZW1vdGVEbnMiOiIxLjEuMS4xIiwiRG9tZXN0aWNEbnMiOiIxLjEuMS4xIiwiUmVtb3RlRE5TVHlwZSI6IkRvSCIsIlJlbW90ZUROU0RvbWFpbiI6Imh0dHBzOi8vMS4xLjEuMS9kbnMtcXVlcnkiLCJSZW1vdGVETlNJUCI6IjEuMS4xLjEiLCJEb21lc3RpY0ROU1R5cGUiOiJEb0giLCJEb21lc3RpY0ROU0RvbWFpbiI6Imh0dHBzOi8vMS4xLjEuMS9kbnMtcXVlcnkiLCJEb21lc3RpY0ROU0lQIjoiMS4xLjEuMSIsIkdlb2lwdXJsIjoiaHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL25vdmV2OS9oYXBwLWdlb0BiYjk2YzE3M2ZhNzMxYjkxMDk3NDZlNGIyNWI3NTJkNzg0MzBlNmVjL2dlb2lwLmRhdCIsIkdlb3NpdGV1cmwiOiJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvZ2gvbm92ZXY5L2hhcHAtZ2VvQGJiOTZjMTczZmE3MzFiOTEwOTc0NmU0YjI1Yjc1MmQ3ODQzMGU2ZWMvZ2Vvc2l0ZS5kYXQiLCJMYXN0VXBkYXRlZCI6IjE3NzY1ODAwMDAiLCJEbnNIb3N0cyI6eyJsa2ZsMi5uYWxvZy5ydSI6IjIxMy4yNC42NC4xNzUiLCJsa25wZC5uYWxvZy5ydSI6IjIxMy4yNC42NC4xODEifSwiUm91dGVPcmRlciI6ImJsb2NrLXByb3h5LWRpcmVjdCIsIkRpcmVjdFNpdGVzIjpbImdlb3NpdGU6cHJpdmF0ZSIsImdlb3NpdGU6Y2F0ZWdvcnktcnUiLCJnZW9zaXRlOndoaXRlbGlzdCIsImdlb3NpdGU6bWljcm9zb2Z0IiwiZ2Vvc2l0ZTphcHBsZSIsImdlb3NpdGU6ZXBpY2dhbWVzIiwiZ2Vvc2l0ZTpyaW90IiwiZ2Vvc2l0ZTplc2NhcGVmcm9tdGFya292IiwiZ2Vvc2l0ZTpzdGVhbSIsImdlb3NpdGU6dHdpdGNoIiwiZ2Vvc2l0ZTpwaW50ZXJlc3QiLCJnZW9zaXRlOmZhY2VpdCIsImRvbWFpbjptYWduaXQucnUiLCJkb21haW46bWdjLWxveWFsdHkucnUiXSwiRGlyZWN0SXAiOlsiZ2VvaXA6cHJpdmF0ZSIsImdlb2lwOmRpcmVjdCJdLCJQcm94eVNpdGVzIjpbImdlb3NpdGU6Z29vZ2xlLXBsYXkiLCJnZW9zaXRlOmdpdGh1YiIsImdlb3NpdGU6dHdpdGNoLWFkcyIsImdlb3NpdGU6eW91dHViZSIsImdlb3NpdGU6dGVsZWdyYW0iXSwiUHJveHlJcCI6W10sIkJsb2NrU2l0ZXMiOlsiZ2Vvc2l0ZTp3aW4tc3B5IiwiZ2Vvc2l0ZTp0b3JyZW50IiwiZ2Vvc2l0ZTpjYXRlZ29yeS1hZHMiXSwiQmxvY2tJcCI6W10sIkRvbWFpblN0cmF0ZWd5IjoiSVBJZk5vbk1hdGNoIiwiRmFrZUROUyI6ImZhbHNlIn0=</code>
+    </div>
+    <button class="copy" id="copyBtn">📋 Скопировать ссылку</button>
+    <p class="small">Скопировал → в Happ → <b>Routing → Import from clipboard</b> → выбери активной. Или глянь на <a href="https://github.com/novev9/happ-geo" target="_blank" rel="noopener">GitHub</a>.</p>
+  </div>
+
+  <div class="mem">
+    <div class="big">💸🐀</div>
+    <h3>Про трафик</h3>
+    <p>Его — вагон. Но если зальёшь больше <b>300 ГБ в месяц</b> — я молча посмотрю на тебя с разочарованием… и заблокирую. <i>(мем… или нет 🤨)</i></p>
+  </div>
+
+  <div class="foot">
+    Сделано с любовью для своих ❤️ &nbsp;•&nbsp;
+    <span class="tag">🇫🇮 exit: Finland</span>
+  </div>
+
+</div>
+
+<script>
+  const btn=document.getElementById('copyBtn');
+  btn.addEventListener('click',async()=>{
+    const t=document.getElementById('route').textContent.trim();
+    try{await navigator.clipboard.writeText(t);}
+    catch(e){const r=document.createRange();r.selectNode(document.getElementById('route'));
+      getSelection().removeAllRanges();getSelection().addRange(r);document.execCommand('copy');}
+    btn.textContent='✅ Скопировано!';btn.classList.add('done');
+    setTimeout(()=>{btn.textContent='📋 Скопировать ссылку';btn.classList.remove('done');},1800);
+  });
+</script>
+</body>
+</html>
